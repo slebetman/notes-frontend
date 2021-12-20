@@ -5,7 +5,7 @@ function getNoteList () {
 }
 
 function getNote (id) {
-	return api.get('/notes/get/:' + id);
+	return api.get('/notes/get/' + id);
 }
 
 function newNote (title, content, color) {
@@ -13,11 +13,11 @@ function newNote (title, content, color) {
 }
 
 function editNote (id, title, content, color) {
-	return api.post('/notes/edit/:' + id, { title, content, color });
+	return api.post('/notes/edit/' + id, { title, content, color });
 }
 
 function deleteNote (id) {
-	return api.post('/notes/delete/:' + id);
+	return api.post('/notes/delete/' + id);
 }
 
 module.exports = {
