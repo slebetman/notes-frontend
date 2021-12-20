@@ -4,11 +4,13 @@ const notes = require('../api/notes');
 function NoteList () {
 	const [list, setList] = useState([]);
 
-	useEffect(async () => {
+	async function fetchNotes () {
 		let l = await notes.getNoteList();
 
 		setList(l.notes);
-	},[])
+	}
+
+	useEffect(fetchNotes,[]);
 
 	return <div id="note-list">
 		<button id="create"
@@ -26,11 +28,20 @@ function NoteList () {
 				return <div
 					className="stickies"
 					style={{ backgroundColor: note.color }}
-					onClick={() => {
-						window.location.href = '/note/' + note.id;
-					}}
 				>
-					<div className="body">
+					<div class="delete-btn"
+						onClick={async () => {
+							await notes.deleteNote(note.id);
+							fetchNotes();
+						}}
+					>
+						×
+					</div>
+					<div className="body"
+						onClick={() => {
+							window.location.href = '/note/' + note.id;
+						}}
+					>
 						<h3>{note.title}</h3>
 						{note.content}
 					</div>
