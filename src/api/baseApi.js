@@ -8,6 +8,9 @@ function post (path, obj) {
 	return fetch(conf.base_url + path, {
 		method: 'POST',
 		body: JSON.stringify(obj),
+		headers: {
+			'Content-Type': 'application/json'
+		}
 	}).then(res => res.json());
 }
 

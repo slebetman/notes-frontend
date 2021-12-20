@@ -20,9 +20,23 @@ function Notes () {
 		}
 	},[]);
 
+	async function saveNote () {
+		if (id === 'new') {
+			await notes.newNote(title, content, color);
+		}
+		else {
+			await notes.editNote(id, title, content, color);
+		}
+	}
+
 	return <div id="note">
 		<div className="input-group">
-			<input type="text" value={title} id="title"/>
+			<input type="text" id="title"
+				value={title}
+				onChange={(e) => {
+					setTitle(e.target.value);
+				}}
+			/>
 			<Popup trigger={<button id="color">Color</button>}>
 				<CompactPicker
 					color={color}
@@ -31,14 +45,21 @@ function Notes () {
 			</Popup>
 		</div>
 		<div className="input-group">
-			<textarea id="body" style={{
-				backgroundColor: color,
-			}} value={content} />
+			<textarea id="body"
+				style={{ backgroundColor: color }}
+				value={content} 
+				onChange={(e) => {
+					setContent(e.target.value);
+				}}
+			/>
 		</div>
 		<div className="input-group">
 			<button
-				onClick={() => {
+				onClick={async () => {
+					await saveNote();
 					console.log('saved');
+
+					window.location.href = '/';
 				}}
 			>
 				Save
