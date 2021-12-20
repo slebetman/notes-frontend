@@ -30,6 +30,7 @@
   border: 1px solid #aaaaaa;
   overflow: hidden;
   margin: 10px;
+  box-shadow: 3px 5px 8px #ccc;
 }
 
 #note-list .stickies .body {
@@ -38,6 +39,11 @@
   padding: 10px;
   white-space: pre-wrap;
   cursor:default;
+}
+
+#note-list .stickies .body .content {
+  width: 170px;
+  font-size: 10pt;
 }
 
 #note-list .stickies h3 {

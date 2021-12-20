@@ -43,7 +43,9 @@ function NoteList () {
 						}}
 					>
 						<h3>{note.title}</h3>
-						{note.content}
+						<div className="content">
+							{note.content}
+						</div>
 					</div>
 				</div>
 			})}
