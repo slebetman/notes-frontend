@@ -34,9 +34,20 @@
 
 #note-list .stickies .body {
   padding: 10px;
+  white-space: pre-wrap;
 }
 
 #note-list .stickies h3 {
   margin-top: 0;
   padding-top: 0;
+}
+
+#note-list button#create {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+#content .material-icons-outlined {
+  vertical-align: middle;
+  margin-right: 5px;
 }

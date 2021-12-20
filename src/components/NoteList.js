@@ -11,20 +11,32 @@ function NoteList () {
 	},[])
 
 	return <div id="note-list">
-		{list.map(note => {
-			return <div
-				className="stickies"
-				style={{ backgroundColor: note.color }}
-				onClick={() => {
-					window.location.href = '/note/' + note.id;
-				}}
-			>
-				<div className="body">
-					<h3>{note.title}</h3>
-					{note.content}
+		<button id="create"
+			onClick={() => {
+				window.location.href = '/note/new';
+			}}
+		>
+			<span class="material-icons-outlined">
+				note_add
+			</span>
+			New Note
+		</button>
+		<div>
+			{list.map(note => {
+				return <div
+					className="stickies"
+					style={{ backgroundColor: note.color }}
+					onClick={() => {
+						window.location.href = '/note/' + note.id;
+					}}
+				>
+					<div className="body">
+						<h3>{note.title}</h3>
+						{note.content}
+					</div>
 				</div>
-			</div>
-		})}
+			})}
+		</div>
 	</div>;
 }
 
