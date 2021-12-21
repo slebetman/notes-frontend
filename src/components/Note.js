@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { CompactPicker } from 'react-color';
-import Popup from "reactjs-popup";
+import ColorPicker from "./Note/ColorPicker";
 import Linkify from "react-linkify/dist/components/Linkify";
 const notes = require('../api/notes');
 
@@ -12,7 +11,7 @@ function Notes () {
 	const [color, setColor] = useState('#FFFFFF');
 	const [editing, setEditing] = useState(false);
 
-	useEffect(async () => {
+	async function loadNote () {
 		if (id !== 'new') {
 			let note = await notes.getNote(id);
 
@@ -23,7 +22,9 @@ function Notes () {
 		else {
 			setEditing(true);
 		}
-	},[]);
+	}
+
+	useEffect(loadNote,[]);
 
 	async function saveNote () {
 		if (id === 'new') {
@@ -45,19 +46,7 @@ function Notes () {
 							setTitle(e.target.value);
 						}}
 					/>
-					<Popup trigger={<button id="color">Color</button>} position="bottom right">
-						<CompactPicker
-							color={color}
-							onChangeComplete={c => setColor(c.hex)}
-							colors={[
-								'#FFFFFF', '#FFFF66', '#FFCC66', '#FF6666', '#FF66FF', '#CC66FF',
-								'#66CCFF', '#99FFFF', '#66FFCC', '#66FF66', '#6666FF', '#6666CC',
-								
-								'#CCCCCC', '#FFFF00', '#FFAA00', '#FF3333', '#FF00FF', '#AA00FF',
-								'#00AAFF', '#33FFFF', '#00FFAA', '#00FF33', '#3333FF', '#3333AA',
-							]}
-						/>
-					</Popup>
+					<ColorPicker value={color} onChange={c => setColor(c)} />
 				</>
 				:
 				<h3
@@ -113,6 +102,7 @@ function Notes () {
 								window.location.href = '/';
 							}
 							else {
+								loadNote();
 								setEditing(false);
 							}
 						}}
