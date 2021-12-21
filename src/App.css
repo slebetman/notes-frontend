@@ -68,3 +68,31 @@
   vertical-align: middle;
   margin-right: 5px;
 }
+
+@media (max-width: 1024px) {
+  #content {
+    margin: 10px 20px;
+  }
+
+  #note-list .stickies h3 {
+    font-size: medium;
+  }
+
+  #note-list .stickies {
+    width: 140px;
+    height: 140px;
+  }
+
+  #note-list .stickies .body {
+    width: 140px;
+    height: 140px;
+  }
+  #note-list .stickies .body .content {
+    width: 120px;
+    font-size: 9pt;
+  }
+
+  #note .input-group #body {
+    height: calc(100vh - 300px);
+  }
+}

@@ -37,7 +37,7 @@ function Notes () {
 					setTitle(e.target.value);
 				}}
 			/>
-			<Popup trigger={<button id="color">Color</button>}>
+			<Popup trigger={<button id="color">Color</button>} position="bottom right">
 				<CompactPicker
 					color={color}
 					onChangeComplete={c => setColor(c.hex)}
