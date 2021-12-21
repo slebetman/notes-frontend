@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Linkify from "react-linkify/dist/components/Linkify";
 const notes = require('../api/notes');
 
 function NoteList () {
@@ -44,7 +45,9 @@ function NoteList () {
 					>
 						<h3>{note.title}</h3>
 						<div className="content">
-							{note.content}
+							<Linkify properties={{target: '_blank'}}>
+								{note.content}
+							</Linkify>
 						</div>
 					</div>
 				</div>
