@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Linkify from "react-linkify/dist/components/Linkify";
+import Sticky from "./NoteList/Sticky";
 const notes = require('../api/notes');
 
 function NoteList () {
@@ -25,33 +25,16 @@ function NoteList () {
 			New Note
 		</button>
 		<div>
-			{list.map(note => {
-				return <div
-					className="stickies"
-					style={{ backgroundColor: note.color }}
-				>
-					<div className="delete-btn"
-						onClick={async () => {
-							await notes.deleteNote(note.id);
-							fetchNotes();
-						}}
-					>
-						×
-					</div>
-					<div className="body"
-						onClick={() => {
-							window.location.href = '/note/' + note.id;
-						}}
-					>
-						<h3>{note.title}</h3>
-						<div className="content">
-							<Linkify properties={{target: '_blank'}}>
-								{note.content}
-							</Linkify>
-						</div>
-					</div>
-				</div>
-			})}
+			{list.map(note => <Sticky
+				title={note.title}
+				content={note.content}
+				color={note.color}
+				note_id={note.id}
+				onDelete={async () => {
+					await notes.deleteNote(note.id);
+					fetchNotes();
+				}}
+			/>)}
 		</div>
 	</div>;
 }
