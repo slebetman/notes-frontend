@@ -60,7 +60,12 @@ function Notes () {
 					</Popup>
 				</>
 				:
-				<h3>{title}</h3>
+				<h3
+					onClick={() => setEditing(true)}
+					onTouchStart={() => setEditing(true)}
+				>
+					{title}
+				</h3>
 			}
 		</div>
 		<div className="input-group">
