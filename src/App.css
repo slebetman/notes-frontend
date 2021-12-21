@@ -8,6 +8,7 @@
 
 #note .input-group #title {
   width: calc(100% - 175px);
+  display: inline;
 }
 
 #note  .input-group button{
@@ -21,6 +22,15 @@
 #note .input-group #body {
   width: calc(100% - 5px);
   height: calc(100vh - 260px);
+  font-family: monospace;
+  font-size: 10pt;
+  margin: 0;
+  padding: 2px;
+  overflow: auto;
+}
+
+#note .input-group div#body {
+  white-space: pre-wrap;
 }
 
 #note-list .stickies {
@@ -70,7 +80,7 @@
 }
 
 @media (max-width: 1024px) {
-  button, input, textarea {
+  button, input, #note .input-group #body {
     font-size: 16px;
   }
 
