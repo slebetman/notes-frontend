@@ -97,7 +97,12 @@ function Notes () {
 							await saveNote();
 							console.log('saved');
 
-							setEditing(false);
+							if (id === 'new') {
+								window.location.href = '/';
+							}
+							else {
+								setEditing(false);
+							}
 						}}
 					>
 						Save
