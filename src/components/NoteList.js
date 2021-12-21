@@ -18,7 +18,7 @@ function NoteList () {
 				window.location.href = '/note/new';
 			}}
 		>
-			<span class="material-icons-outlined">
+			<span className="material-icons-outlined">
 				note_add
 			</span>
 			New Note
@@ -29,7 +29,7 @@ function NoteList () {
 					className="stickies"
 					style={{ backgroundColor: note.color }}
 				>
-					<div class="delete-btn"
+					<div className="delete-btn"
 						onClick={async () => {
 							await notes.deleteNote(note.id);
 							fetchNotes();
