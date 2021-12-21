@@ -19,7 +19,7 @@
 }
 
 #note .input-group #body {
-  width: 100%;
+  width: calc(100% - 5px);
   height: calc(100vh - 260px);
 }
 
@@ -70,6 +70,18 @@
 }
 
 @media (max-width: 1024px) {
+  button, input, textarea {
+    font-size: 16px;
+  }
+
+  #note .input-group #title {
+    width: calc(100% - 150px);
+  }
+  
+  #note  .input-group button{
+    width: 120px;
+  }
+
   #content {
     margin: 10px 20px;
   }
@@ -87,12 +99,14 @@
     width: 140px;
     height: 140px;
   }
+
   #note-list .stickies .body .content {
     width: 120px;
     font-size: 9pt;
   }
 
   #note .input-group #body {
-    height: calc(100vh - 300px);
+    width: calc(100% - 15px);
+    height: calc(100vh - 310px);
   }
 }
