@@ -10,7 +10,7 @@ function Header () {
 		setWeather(await weatherAPI.get());
 	}
 
-	useEffect(refreshWeather,[]);
+	useEffect(() => refreshWeather(),[]);
 
 	clearInterval(intervalHandle);
 	intervalHandle = setInterval(refreshWeather, 2*60*1000);
@@ -36,7 +36,7 @@ function Header () {
 			{ weather ?  
 				<span id="weather">
 					{weather.temperature}°C
-					<img src={weather.icon} className="icon" />
+					<img src={weather.icon} className="icon" alt="icon" />
 				</span>
 				:
 				null

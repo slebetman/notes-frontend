@@ -25,12 +25,8 @@
   font-family: monospace;
   font-size: 10pt;
   margin: 0;
-  padding: 2px;
+  padding: 2px 10px;
   overflow: auto;
-}
-
-#note .input-group div#body {
-  white-space: pre-wrap;
 }
 
 #note-list .stickies {
@@ -47,7 +43,6 @@
   width: 190px;
   height: 190px;
   padding: 10px;
-  white-space: pre-wrap;
   cursor:default;
 }
 

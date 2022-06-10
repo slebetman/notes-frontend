@@ -11,7 +11,7 @@ function NoteList () {
 		setList(l.notes);
 	}
 
-	useEffect(fetchNotes,[]);
+	useEffect(() => fetchNotes(),[]);
 
 	return <div id="note-list">
 		<button id="create"

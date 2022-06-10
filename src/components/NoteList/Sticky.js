@@ -1,4 +1,4 @@
-import Linkify from "react-linkify/dist/components/Linkify";
+import Markdown from "../Markdown";
 
 function Sticky (props) {
 	return <div
@@ -17,9 +17,7 @@ function Sticky (props) {
 		>
 			<h3>{props.title}</h3>
 			<div className="content">
-				<Linkify properties={{target: '_blank'}}>
-					{props.content}
-				</Linkify>
+				<Markdown content={props.content} />
 			</div>
 		</div>
 	</div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import ColorPicker from "./Note/ColorPicker";
-import Linkify from "react-linkify/dist/components/Linkify";
+import Markdown from "./Markdown";
 const notes = require('../api/notes');
 
 function Notes () {
@@ -11,20 +11,20 @@ function Notes () {
 	const [color, setColor] = useState('#FFFFFF');
 	const [editing, setEditing] = useState(false);
 
-	async function loadNote () {
+	function loadNote () {
 		if (id !== 'new') {
-			let note = await notes.getNote(id);
-
-			setTitle(note.note.title);
-			setContent(note.note.content);
-			setColor(note.note.color);
+			notes.getNote(id).then(note => {
+				setTitle(note.note.title);
+				setContent(note.note.content);
+				setColor(note.note.color);
+			});
 		}
 		else {
 			setEditing(true);
 		}
 	}
 
-	useEffect(loadNote,[]);
+	useEffect(loadNote,[id]);
 
 	async function saveNote () {
 		if (id === 'new') {
@@ -72,9 +72,7 @@ function Notes () {
 					onClick={() => setEditing(true)}
 					onTouchStart={() => setEditing(true)}
 				>
-					<Linkify properties={{target: '_blank'}}>
-						{content}
-					</Linkify>
+					<Markdown content={content} />
 				</div>
 			}
 		</div>
