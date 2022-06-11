@@ -29,8 +29,17 @@ li {
   font-family: monospace;
   font-size: 10pt;
   margin: 0;
-  padding: 2px 10px;
+  padding: 5px 10px;
   overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 4px;
 }
 
 #note-list .stickies {

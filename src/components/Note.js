@@ -36,6 +36,12 @@ function Notes () {
 		setEditing(false);
 	}
 
+	function editMode (e) {
+		if (e.target.tagName.toLowerCase() !== 'a') {
+			setEditing(true);
+		}
+	}
+
 	return <div id="note">
 		<div className="input-group">
 			{ editing ?
@@ -50,8 +56,8 @@ function Notes () {
 				</>
 				:
 				<h3
-					onClick={() => setEditing(true)}
-					onTouchStart={() => setEditing(true)}
+					onClick={editMode}
+					onTouchStart={editMode}
 				>
 					{title}
 				</h3>
@@ -69,8 +75,8 @@ function Notes () {
 				:
 				<div id="body"
 					style={{ backgroundColor: color }}
-					onClick={() => setEditing(true)}
-					onTouchStart={() => setEditing(true)}
+					onClick={editMode}
+					onTouchStart={editMode}
 				>
 					<Markdown content={content} />
 				</div>

@@ -11,8 +11,10 @@ function Sticky (props) {
 			×
 		</div>
 		<div className="body"
-			onClick={() => {
-				window.location.href = '/note/' + props.note_id;
+			onClick={(e) => {
+				if (e.target.tagName.toLowerCase() !== 'a') {
+					window.location.href = '/note/' + props.note_id;
+				}
 			}}
 		>
 			<h3>{props.title}</h3>
