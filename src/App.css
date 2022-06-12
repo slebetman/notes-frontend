@@ -15,7 +15,7 @@ li {
   display: inline;
 }
 
-#note  .input-group button{
+#note  .input-group button {
   width: 150px;
   padding-left: 0;
   padding-right: 0;
@@ -33,6 +33,31 @@ li {
   overflow: auto;
 }
 
+#note .input-group #body img {
+  max-height: 60vh;
+}
+
+#note .input-group #body img[alt$="small"] {
+  max-height: 25vh;
+  max-width: 200px;
+}
+
+pre code {
+  padding: 10px;
+  display: block;
+  background-color: #eee;
+  overflow: auto;
+}
+
+.stickies pre code {
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.stickies ul {
+  padding-left: 20px;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -40,6 +65,11 @@ table {
 th, td {
   border: 1px solid black;
   padding: 4px;
+}
+
+th {
+  background-color: rgba(100, 100, 100, 0.25);
+  text-align: left;
 }
 
 #note-list .stickies {
@@ -55,11 +85,17 @@ th, td {
 #note-list .stickies .body {
   padding: 10px;
   cursor:default;
+  height: calc(100% - 20px);
 }
 
 #note-list .stickies .body .content {
   width: 170px;
   font-size: 10pt;
+}
+
+#note-list .stickies .body .content img {
+  max-width: 50%;
+  height: auto;
 }
 
 #note-list .stickies h3 {
